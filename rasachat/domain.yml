@@ -1,0 +1,579 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - weather
+  - city
+  - medins
+  - premium
+  - grace_period
+  - pmjay
+  - rsby
+  - esi
+  - cghs
+  - sghi
+  - nhps
+  - govt_schemes
+  - my_dob:
+      use_entities:
+        - dob
+  - tellme_details
+  - my_name:
+      use_entities:
+        - name
+  - my_address:
+      use_entities:
+        - address
+  - my_email:
+      use_entities:
+        - email
+  - number:
+      use_entities:
+        - number
+  - inform_policy:
+      use_entities:
+        - inform_policy
+  - select_policy:
+      use_entities:
+        - select_policy
+  - direct
+  - instructions
+  - conditions
+  - pvt_schemes
+  - mbhi
+  - amhi
+  - rhi
+  - shai
+  - ilgi
+  - bagi
+  - niacl
+  - uicl
+  - network
+  - hmo
+  - ppo
+  - medicare
+  - medicaid
+  - eob
+  - pre_ex
+  - subsidy
+  - dependent
+  - formulary
+  - diseases
+  - astma
+  - bp
+  - surgery
+  - diabetics
+  - thyroid
+  - csd
+  - ihgg
+  - hg
+  - read
+  - shp
+  - purchase
+  # - FirstName
+  # - LastName
+  # - request_details
+  # - affirm
+  # - deny
+  # - Feedback
+
+# entities:
+#   - firstN
+
+# slots: 
+#   feedback:
+#     type: unfeaturized 
+#     mappings:
+#       - type: from_entity
+#     auto_fill: false 
+#   firstN: 
+#     type: unfeaturized 
+#     mappings:
+#       - type: from_entity
+#     auto_fill: false 
+#   lastN: 
+#     type: unfeaturized 
+#     mappings:
+#       - type: from_entity
+#     auto_fill: false
+   
+entities:
+  - dob
+  - name
+  - address
+  - email
+  - number
+  - purchase_policy
+  - select_policy
+  - policy
+
+slots:
+  dob:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: dob
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  address:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: address
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+  number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: number
+  action_save_details:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  select_policy:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: select_policy     
+  policy:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: policy
+  purchase_policy:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: purchase_policy
+
+actions:
+  - utter_city 
+  - utter_temp 
+  - action_weather_api
+  - utter_medins
+  - utter_premium
+  - utter_grace_period
+  - utter_govt_schemes
+  - utter_pmjay
+  - utter_rsby
+  - utter_esi
+  - utter_cghs
+  - utter_sghi
+  - utter_nhps
+  - utter_direct
+  - utter_instructions
+  - utter_conditions
+  - utter_pvt_schemes
+  - utter_mbhi
+  - utter_amhi
+  - utter_rhi
+  - utter_shai
+  - utter_ilgi
+  - utter_bagi
+  - utter_niacl
+  - utter_uicl
+  - utter_hmo
+  - utter_ppo
+  - utter_network
+  - utter_medicare
+  - utter_medicaid
+  - utter_eob
+  - utter_pre_ex
+  - utter_subsidy
+  - utter_dependent
+  - utter_formulary
+  # - action_save_details
+  # - action_last_name
+  # - action_feedback
+  # - action_submit
+  - utter_thanks
+  - action_save_details
+  - utter_diseases
+  - action_insurance_details
+  - utter_schemes
+  - utter_astma
+  - utter_bp
+  - utter_surgery
+  - utter_diabetics
+  - utter_thyroid
+  - action_policy_schemes
+  - action_select_policy
+  - utter_csd
+  - utter_ihgg
+  - utter_hg
+  - utter_read
+  - utter_shp
+  - action_purchase_policy
+  - utter_purchase
+
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you? tell me your phone number? "
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_city:
+  - text: "which city you want to check for?"
+
+  utter_temp:
+  - text: "Today's temperature is {temp} degree Celcius."
+
+  utter_medins:
+  - text: "Medical insurance, also known as health insurance, is a type of coverage that helps individuals or groups manage the costs associated with medical care. It works by spreading the risk of high medical expenses among a large number of people, who pay premiums into a pool. This pool of funds is then used to cover the medical expenses of those who require healthcare services.."
+
+  utter_premium:
+  - text: "A premium is the amount of money an individual or employer pays to an insurance company in exchange for coverage."
+
+  utter_grace_period:
+  - text: "A grace period is a specified amount of time after the due date for paying insurance premiums during which coverage continues despite non-payment. If the premium is not paid by the end of the grace period, coverage may be terminated."
+ 
+  utter_pmjay:
+  - text: "Launched in 2018, PMJAY, also known as Ayushman Bharat, is a flagship health insurance scheme aimed at providing health coverage to over 500 million vulnerable individuals and families.
+It provides cashless coverage of up to ₹5 lakh per family per year for secondary and tertiary healthcare services.
+PMJAY covers over 1,500 medical packages for procedures ranging from surgeries to treatments for chronic illnesses.
+."
+
+  utter_rsby:
+  - text: "RSBY was a health insurance scheme launched in 2008 to provide coverage to below-poverty-line (BPL) families. It offered cashless coverage for hospitalization expenses up to ₹30,000 per family per year on a family floater basis.RSBY was merged with PMJAY in 2018."
+
+  utter_esi:
+  - text: "The ESI Scheme is a social security and health insurance scheme for workers in the organized sector. It provides medical benefits, sickness benefits, maternity benefits, disablement benefits, and other benefits to insured workers and their dependents. The scheme is administered by the Employees' State Insurance Corporation (ESIC).."
+
+  utter_cghs:
+  - text: "CGHS is a comprehensive health scheme for central government employees and pensioners, as well as their dependents. It provides cashless medical services at empaneled hospitals and reimbursement for outpatient and inpatient treatment expenses.."
+
+  utter_sghi:
+  - text: "Many state governments in India have their own health insurance schemes aimed at providing coverage to residents of the state. Examples include Arogya Karnataka (Karnataka),Mukhyamantri Amrutum Yojana (Gujarat), Bhamashah Swasthya Bima Yojana (Rajasthan), and Tamil Nadu Health Insurance Scheme (Tamil Nadu)."
+
+  utter_nhps:
+  - text: "NHPS, also known as Modicare, was proposed as a flagship health insurance scheme by the Indian government. However, it has undergone changes and is now part of the broader PMJAY initiative."
+
+  utter_govt_schemes: 
+  - text: " Govt medical insurance schemes is Central or State Govt powered schemes that is designed to provide adequate health cover at a low priced insurance cover. India has many govt medical insurance schemes, including:"
+    buttons:
+    - title: Pradhan Mantri Jan Arogya Yojana (PMJAY)
+      payload: /pmjay
+    - title: Rashtriya Swasthya Bima Yojana (RSBY)
+      payload: /rsby
+    - title: Employees' State Insurance (ESI) Scheme
+      payload: /esi
+    - title: Central Government Health Scheme (CGHS)
+      payload: /cghs
+    - title: State Government Health Insurance Schemes
+      payload: /sghi
+    - title: National Health Protection Scheme (NHPS)
+      payload: /nhps
+  
+  utter_dob:
+  - text: "Hi {name}! Tell me your date of birth?"
+
+  utter_name:
+  - text: "Tell me your name?"
+
+  utter_address:
+  - text: "Hi {name}! Tell me your address?" 
+
+  utter_email:
+  - text: "Hi {name}! Tell me your email address?" 
+
+  utter_number:
+  - text: " Tell me your phone number?"
+
+  utter_details:
+  - text: "name:{name},\n dob:{dob},\n address:{address},\n email:{email},\n number:{number}"
+
+  # utter_details:
+  # - text: "name:{name},\n number:{number}"
+
+  utter_direct:
+  - text: "Yes, you can purchase medical insurance directly from an insurance company, or you may obtain it through your employer, a government program, or a private exchange."
+
+  utter_instructions:
+  - text: "1.Assess Your Needs: Determine what type of coverage you need based on factors such as your health status, age, family size, and budget. Consider factors like deductibles, copayments, and networks when evaluating plans.
+
+2.Research Insurance Providers: Research different insurance providers to find ones that offer plans suitable for your needs. Look at factors such as the provider's reputation, customer service ratings, and the range of plans they offer.
+
+3.Compare Plans: Compare the features and costs of different insurance plans offered by various providers. Pay attention to premiums, deductibles, copayments, coinsurance, coverage limits, and network restrictions.
+
+4.Understand Plan Details: Read the terms and conditions of each insurance plan carefully to understand what is covered, what is not covered, and any limitations or exclusions. Pay attention to coverage for prescription drugs, preventive care, specialist visits, and hospital stays.
+
+5.Check Provider Networks: If you have preferred doctors, hospitals, or other healthcare providers, make sure they are included in the network of the insurance plan you are considering. Using providers within the network usually results in lower out-of-pocket costs.
+
+6.Consider Additional Benefits: Some insurance plans offer additional benefits such as wellness programs, telemedicine services, or health savings accounts (HSAs). Evaluate whether these additional benefits are important to you and factor them into your decision.
+
+7.Review Costs: Calculate the total costs associated with each insurance plan, including premiums, deductibles, copayments, and coinsurance. Determine how much you can afford to pay for healthcare expenses and choose a plan that fits your budget.
+
+8.Apply for Coverage: Once you have chosen an insurance plan, complete the application process as instructed by the insurance provider. You may need to provide personal information, employment details, and health history.
+
+9.Pay Premiums: After your application is approved, you will need to pay the initial premium to activate your coverage. Follow the instructions provided by the insurance provider to make payments on time to maintain continuous coverage.
+
+10.Review and Renew: Periodically review your insurance coverage to ensure it still meets your needs. Pay attention to any changes in premiums, benefits, or provider networks. Renew your coverage each year during the open enrollment period or as required by your insurance provider.
+
+11.Understand Your Rights: Familiarize yourself with your rights as an insured individual, including your right to appeal claim denials, access emergency care, and receive clear explanations of benefits from your insurance provider
+"
+  utter_conditions:
+  - text: "1.Eligibility Criteria: Insurance companies often have eligibility criteria that applicants must meet in order to qualify for coverage. This may include factors such as age, residency status, employment status, or enrollment in certain government programs.
+
+2.Application Process: Individuals seeking medical insurance typically need to complete an application form provided by the insurance company. This form may require personal information such as name, address, date of birth, employment details, and health history.
+
+3.Health Assessment: Some insurance plans require applicants to undergo a health assessment or medical underwriting process. This may involve answering questions about your medical history, current health status, lifestyle factors, and pre-existing conditions.
+
+4.Premium Payment: Applicants are generally required to pay premiums in order to obtain medical insurance coverage. Premiums may be paid monthly, quarterly, or annually, depending on the terms of the insurance plan.
+
+5.Waiting Periods: Some insurance plans have waiting periods before coverage begins for certain services or pre-existing conditions. During this waiting period, the insured may not be eligible for coverage for certain types of medical care.
+
+6.Proof of Identity: Insurance companies typically require applicants to provide proof of identity, such as a driver's license, passport, or other government-issued identification.
+
+7.Payment History: Applicants may need to provide information about their payment history with previous insurance plans, including any history of late payments or coverage lapses.
+
+8.Legal Requirements: In some countries or regions, there may be legal requirements or regulations governing the purchase of medical insurance. Applicants should be aware of any legal obligations they must meet in order to obtain coverage.
+
+9.Consent for Information Sharing: Applicants may need to provide consent for the insurance company to obtain medical records or other relevant information from healthcare providers in order to assess their eligibility for coverage.
+" 
+  utter_pvt_schemes: 
+  - text: " Private medical insurance schemes in India have become increasingly popular in recent years, offering individuals and families a way to safeguard their health against unexpected medical expenses,there are many private medical insurance schemes are available including:"
+    buttons:
+    - title: Max Bupa Health Insurance
+      payload: /mbhi
+    - title: Apollo Munich Health Insurance 
+      payload: /amhi
+    - title: Religare Health Insurance 
+      payload: /rhi
+    - title: Star Health and Allied Insurance
+      payload: /shai
+    - title: ICICI Lombard General Insurance
+      payload: /ilgi
+    - title: Bajaj Allianz General Insurance
+      payload: /bagi
+    - title: New India Assurance Company Limited
+      payload: /niacl
+    - title: United India Insurance Company Limited
+      payload: /uicl
+
+  utter_mbhi:
+  - text: "Max Bupa offers a range of health insurance plans tailored to the needs of individuals, families, and senior citizens.
+Their plans include features like cashless hospitalization, coverage for pre-existing conditions, and optional add-ons for enhanced coverage."
+
+  utter_amhi:
+  - text: "Apollo Munich (now part of HDFC ERGO) provides health insurance plans with comprehensive coverage, including hospitalization expenses, critical illness coverage, and wellness benefits.
+Their plans often include features like lifelong renewability, no sub-limits on room rent, and coverage for alternative treatments.
+"
+  utter_rhi:
+  - text: "Religare Health Insurance, now known as Care Health Insurance, offers health insurance plans with a focus on comprehensive coverage and customer-centric services.
+Their plans include features like international coverage, no-claim bonus, and coverage for pre-existing diseases after a waiting period."
+
+  utter_shai:
+  - text: "Star Health offers a wide range of health insurance products catering to individuals, families, senior citizens, and specific diseases.
+Their plans include features like coverage for daycare procedures, pre and post-hospitalization expenses, and cashless hospitalization at network hospitals."
+
+  utter_ilgi:
+  - text: "ICICI Lombard provides health insurance plans with a variety of coverage options, including individual health plans, family floater plans, and critical illness plans.
+Their plans offer features like coverage for maternity expenses, ambulance charges, and optional add-ons for enhanced coverage."
+
+  utter_bagi:
+  - text: "Bajaj Allianz offers health insurance plans with features like lifelong renewability, coverage for pre-existing diseases after a waiting period, and cashless hospitalization at network hospitals.
+Their plans also include value-added services like health check-ups and wellness programs."
+
+  utter_niacl:
+  - text: "New India Assurance offers health insurance plans with comprehensive coverage options, including individual health plans, family floater plans, and group health plans.
+Their plans come with features like coverage for pre-existing diseases after a waiting period, cashless hospitalization, and optional add-ons for enhanced coverage."
+
+  utter_uicl:
+  - text: "United India Insurance provides health insurance plans with features like coverage for pre-existing diseases after a waiting period, cashless hospitalization at network hospitals, and optional add-ons for enhanced coverage.
+Their plans also offer coverage for maternity expenses, ambulance charges, and day care procedures."
+
+  utter_hmo:
+  - text: "An HMO, or Health Maintenance Organization, is a type of medical insurance plan that requires insured individuals to choose a primary care physician (PCP) and obtain referrals from the PCP to see specialists."
+
+  utter_network:
+  - text: "A network is a group of healthcare providers, such as doctors, hospitals, and clinics, that have contracted with an insurance company to provide services to insured individuals at negotiated rates.."
+
+  utter_ppo:
+  - text: "A PPO, or Preferred Provider Organization, is a type of medical insurance plan that offers more flexibility in choosing healthcare providers. Insured individuals can see any provider, but they will pay less if they use providers within the plan's network."
+
+  utter_medicare:
+  - text: "Medicare is a federal health insurance program in the United States that provides coverage for people aged 65 and older, as well as some younger individuals with disabilities or specific medical conditions."
+
+  utter_medicaid:
+  - text: "Medicaid is a joint federal and state program in the United States that provides health insurance coverage for low-income individuals and families."
+
+  utter_eob:
+  - text: "An Explanation of Benefits (EOB) is a statement that insurers send to insured individuals after they receive healthcare services. It explains what services were provided, the cost of those services, and how much the insurance company paid."
+
+  utter_pre_ex:
+  - text: "A pre-existing condition is a health condition that existed before an individual's enrollment in a health insurance plan. Prior to the Affordable Care Act in the United States, insurers could deny coverage or charge higher premiums based on pre-existing conditions."
+
+  utter_subsidy:
+  - text: "A premium subsidy, also known as a premium tax credit, is a financial assistance program available to eligible individuals and families to help lower the cost of health insurance premiums, particularly for plans purchased through a Health Insurance Marketplace."
+
+  utter_dependent:
+  - text: "A dependent is a person, such as a spouse or child, who relies on someone else for financial support. In the context of health insurance, dependents may be eligible for coverage under a policyholder's insurance plan."
+
+  utter_formulary:
+  - text: "A formulary is a list of prescription drugs that are covered by a health insurance plan. Drugs on the formulary are usually grouped into tiers, with lower-tier drugs having lower copayments or coinsurance."
+
+  # utter_firstname:
+  # - text: "Please provide your first name."
+
+  # utter_lastname:
+  # - text: "Please provide your last name."
+
+  # utter_feedback:
+  # - text: "Please provide your feedback."
+
+  # utter_submit:
+  # - text: "These are the values that you provided say yes or no to confirm:\n First name: {Fname}\n Last Name: {Lname}\n Feedback: {fdbk}"
+
+  utter_query:
+  - text: "tell me your query."
+
+  utter_diseases:
+  - text: "choose any disease type..."
+    buttons:
+    - title: Astma
+      payload: /astma
+    - title: BloodPressure 
+      payload: /bp
+    - title: surgery
+      payload: /surj
+    - title: diabetics
+      payload: /dibts
+    - title: thyroid
+      payload: /thyrd
+
+  utter_astma:
+  - text: "your disease is asthma."
+
+  utter_bp:
+  - text: "your disease is blood pressure."
+
+  utter_surgery:
+  - text: "your disease is surgery."
+
+  utter_diabetics:
+  - text: "your disease is diabetics."
+
+  utter_thyroid:
+  - text: "your disease is thyroid."
+
+  utter_policy: 
+  - text: "medical insurance schemes, including:"
+    buttons:
+    - title: Care Supreme Direct
+      payload: /csd
+    - title: Individual Health Guard – Gold
+      payload: /ihgg
+    - title: Health Gain
+      payload: /hg
+    - title: ReAssure 2.0 Bronze+ (Direct)
+      payload: /read
+    - title: Smart Health Pro
+      payload: /shp
+
+  utter_csd:
+  - text: "<h1>Features</h1><hr />
+   <b>Total cover amount: 5 lakh.</b> <br />
+   <details><summary>Claims paid within 3 months: 96.6%.</summary></details>
+   <details><summary>Restoration of cover: Rs 5 lakh once in a year; for unrelated illness.</summary></details>
+   <details><summary>Hospitalization at home: Not available in this plan.</summary></details>
+   <details><summary>Ambulance charges: Up to Rs 20,000 per year</summary></details>"
+    buttons:
+    - title: Purchase
+      payload: /purchase
+    - title: choose another policy
+      payload: /inform_policy
+   
+  utter_ihgg:
+  - text: "<h1>Features</h1><hr />
+  <b>Total cover amount: 5 lakh.</b><br />
+  <details><summary>Claims paid within 3 months: 96.6%.</summary></details>
+  <details><summary>Restoration of cover: Rs 5 lakh once in a year; for unrelated illness.</summary></details>
+  <details><summary>Hospitalization at home: Not available in this plan.</summary></details>
+  <details><summary>Ambulance charges: Up to Rs 20,000 per year</summary></details>"
+    buttons:
+    - title: purchase
+      payload: /purchase
+    - title: choose another policy
+      payload: /inform_policy
+
+  utter_hg:
+  - text: "<h1>Features</h1><hr />
+  <b>Total cover amount: 5 lakh</b><br />
+  <details><summary>Claims paid within 3 months: 96.6%.</summary></details>
+  <details><summary>Restoration of cover: Rs 5 lakh for unrelated illness/injury; sub-limit of Rs 1 lakh for related illness or injury.</summary></details>
+  <details><summary>Hospitalization at home: Up to Rs 5 lakh.</summary></details>
+  <details><summary>Ambulance charges: Up to Rs 1,500 per hospitalization</summary></details>"
+    buttons:
+    - title: Purchase
+      payload: /purchase
+    - title: choose another policy
+      payload: /inform_policy
+
+  utter_read:
+  - text: "<h1>Features</h1><hr />
+  <b>Total cover amount: 5 lakh</b><br />
+  <details><summary>Claims paid within 3 months: </summary>100%</details>
+  <details><summary>Room rent limit: Any category</summary></details>
+  <details><summary>Restoration of cover: Rs 5 lakh unlimited times in a year; both related and unrelated illness.</summary></details>
+  <details><summary>Hospitalization at home: Up to Rs 5 lakh</summary></details>
+  <details><summary>Ambulance charges: Up to Rs 5 lakh</summary></details>"
+    buttons:
+    - title: Purchase
+      payload: /purchase
+    - title: choose another policy
+      payload: /inform_policy
+
+  utter_shp:
+  - text: "<h1>Features</h1><hr />
+  <b>Total cover amount: 5 lakh</b><br />
+  <details><summary>Claims paid within 3 months: 99.1%</summary></details>
+  <details><summary>Room rent limit: Single private ac room</summary></details>
+  <details><summary>Restoration of cover: Rs 5 lakh once in a year; for both related and unrelated illness</summary></details>
+  <details><summary>Hospitalization at home: Up to 50,000</summary></details>
+  <details><summary>Ambulance charges: Up to actual expenses</summary></details>"
+    buttons:
+    - title: Purchase
+      payload: /purchase
+    - title: choose another policy
+      payload: /inform_policy
+
+  utter_purchase:
+  - text: "The amount you have to pay : "
+  
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

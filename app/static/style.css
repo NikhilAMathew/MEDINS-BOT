@@ -1,0 +1,194 @@
+
+        body {
+            background-color: #fff;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        #wrapper {
+            display: flex;
+            flex: 1;
+        }
+
+        #sidebar1 {
+            width: 70px;
+            background-color: #071330;
+            color: white;
+            padding-top: 20px;
+            height: 100vh;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #sidebar2 {
+            width: 300px;
+            background-color: #D4F1F4;
+            padding-top: 20px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        #chat-container {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+
+        #chat-box {
+            margin-top: 5px;
+            overflow-y: auto;
+            border-top: 1px solid #D4F1F4;
+            border-bottom: 1px solid #D4F1F4;
+            border-radius: 10px;
+            padding: 10px;
+            flex: 1;
+            max-height: calc(100vh - 140px); /* Adjust the value based on your design */
+            margin-bottom: 20px;
+        }
+
+        #user-input {
+            display: flex;
+            align-items: center;
+        }
+
+        #user-input .message-input {
+            flex: 1;
+            margin-right: 10px;
+            border-radius: 5px;
+	    width: 94%;
+	    border:none;
+        }
+
+	*:focus {
+    	outline: none;
+	}
+
+        .btn-light {
+	    border: 1px solid #D4F1F4;
+            border-radius: 4px !important;
+        }
+
+
+	.logoutBtn{
+        margin-top: 10px;
+	}
+
+	.settingsBtn{
+        margin-top: 77vh;
+	}
+
+	.text-center2 {
+	margin-left:20px;
+	}
+
+	.get-btn {
+  	color: #fff;
+  	border-radius: 4px;
+  	padding: 6px 14px 6px 15px;
+  	white-space: nowrap;
+  	transition: 0.3s ease;
+  	font-size: 14px;
+  	display: inline-block;
+  	background : #071330;
+	}
+
+	.get-btn:hover {
+  	background: #274472;
+  	color: #fff;
+	}
+
+
+@media (min-width: 768px) {
+    .toggle_btn {
+        display: none;
+    }
+}
+
+
+@media (max-width: 767px) {
+    #wrapper {
+        flex-direction: column;
+    }
+
+    #sidebar2 {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 100%;
+        z-index: 1000; /* Set a high z-index to overlay on top of other elements */
+        transition: transform 0.3s ease-in-out;
+        transform: translateX(-100%);
+    }
+
+    #sidebar2.open {
+        transform: translateX(0);
+    }
+
+    #chat-container {
+        transition: margin-left 0.3s;
+        margin-left: 0;
+    }
+}
+
+.dropdown_menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 70px;
+    width: 300px;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+
+    border-radius: 10px;
+    overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 240px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown_menu .action_btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 992px) {
+    .sidebar2 .links,
+    .sidebar2 .action_btn {
+        display: none;
+    }
+
+    .sidebar2 .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
+
+
+

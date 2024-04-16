@@ -1,0 +1,324 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: happy weather
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: weather 
+  - action: utter_city
+  - intent: city 
+  - action: action_weather_api
+
+- story: medical
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: medins
+  - action: utter_medins
+
+- story: premium
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: premium
+  - action: utter_premium
+
+- story: grace
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: grace_period
+  - action: utter_grace_period
+
+- story: govt_schemes
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: govt_schemes
+  - action: utter_govt_schemes
+  
+- story: pmjay
+  steps:
+  - intent: pmjay
+  - action: utter_pmjay
+
+- story: rsby
+  steps:
+  - intent: rsby
+  - action: utter_rsby
+
+- story: esi
+  steps:
+  - intent: esi
+  - action: utter_esi
+
+- story: cghs
+  steps:
+  - intent: cghs
+  - action: utter_cghs
+
+- story: sghi
+  steps:
+  - intent: sghi
+  - action: utter_sghi
+
+- story: nhps
+  steps:
+  - intent: nhps
+  - action: utter_nhps
+
+- story: details path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: utter_number
+  - intent: number
+    entities:
+    - number: "9947970607"
+  - slot_was_set:
+      - number: "9947970607"
+  - action: utter_name
+  - intent: my_name
+    entities:
+    - name: "vishnupriya"
+  - slot_was_set:
+      - name: "vishnupriya"
+  - action: utter_dob
+  - intent: my_dob
+    entities:
+    - dob: "21/08/2001"
+  - slot_was_set:
+      - dob: "21/08/2001"
+  - action: utter_email
+  - intent: my_email
+    entities:
+    - email: "vishnupriya@gmail.com"
+  - slot_was_set:
+      - email: "vishnupriya@gmail.com"
+  - action: utter_address
+  - intent: my_address
+    entities:
+    - address: "melethil, kodumon,69155"
+  - slot_was_set:
+      - address: "melethil, kodumon,69155"
+  - action: action_save_details
+  - action: utter_query
+  
+
+- story: details
+  steps:
+  - intent: tellme_details
+  - action: utter_details
+
+- story: direct
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: direct
+  - action: utter_direct
+
+- story: instructions
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: instructions
+  - action: utter_instructions
+
+- story: conditions
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: conditions
+  - action: utter_conditions
+
+- story: pvt_schemes
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: pvt_schemes
+  - action: utter_pvt_schemes
+
+- story: mbhi
+  steps:
+  - intent: mbhi
+  - action: utter_mbhi
+
+- story: amhi
+  steps:
+  - intent: amhi
+  - action: utter_amhi
+
+- story: rhi
+  steps:
+  - intent: rhi
+  - action: utter_rhi
+
+- story: shai
+  steps:
+  - intent: shai
+  - action: utter_shai
+
+- story: ilgi
+  steps:
+  - intent: ilgi
+  - action: utter_ilgi
+
+- story: bagi
+  steps:
+  - intent: bagi
+  - action: utter_bagi
+
+- story: niacl
+  steps:
+  - intent: niacl
+  - action: utter_niacl
+
+- story: uicl
+  steps:
+  - intent: uicl
+  - action: utter_uicl
+
+- story: hmo
+  steps:
+  - intent: hmo
+  - action: utter_hmo
+
+- story: network
+  steps:
+  - intent: network
+  - action: utter_network
+
+- story: ppo
+  steps:
+  - intent: ppo
+  - action: utter_ppo
+
+- story: medicare
+  steps:
+  - intent: medicare
+  - action: utter_medicare
+
+- story: medicaid
+  steps:
+  - intent: medicaid
+  - action: utter_medicaid
+
+- story: eob
+  steps:
+  - intent: eob
+  - action: utter_eob
+
+- story: pre_ex
+  steps:
+  - intent: pre_ex
+  - action: utter_pre_ex
+
+- story: subsidy
+  steps:
+  - intent: subsidy
+  - action: utter_subsidy
+
+- story: dependent
+  steps:
+  - intent: dependent
+  - action: utter_dependent
+
+- story: formulary
+  steps:
+  - intent: formulary
+  - action: utter_formulary
+
+- story: diseases
+  steps:
+  - intent: diseases
+  - action: action_insurance_details
+  - action: utter_diseases
+
+- story: astma
+  steps:
+  - intent: astma
+  - action: utter_astma
+
+- story: bp
+  steps:
+  - intent: bp
+  - action: utter_bp
+
+- story: surgery
+  steps:
+  - intent: surgery
+  - action: utter_surgery
+
+- story: diabetics
+  steps:
+  - intent: diabetics
+  - action: utter_diabetics
+
+- story: thyroid
+  steps:
+  - intent: thyroid
+  - action: utter_thyroid
+
+- story: policy
+  steps:
+  - intent: inform_policy
+  - action: action_policy_schemes
+  - intent: select_policy
+  - action: action_select_policy
+  - intent: purchase
+  - action: action_purchase_policy
+
+- story: csd
+  steps:
+  - intent: csd
+  - action: utter_csd
+
+- story: ihgg
+  steps:
+  - intent: ihgg
+  - action: utter_ihgg
+
+- story: hg
+  steps:
+  - intent: hg
+  - action: utter_hg
+
+- story: read
+  steps:
+  - intent: read
+  - action: utter_read
+
+- story: shp
+  steps:
+  - intent: shp
+  - action: utter_shp
+

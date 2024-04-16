@@ -1,0 +1,454 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: weather
+  examples: |
+    - what's the weather
+    - i want to know the weather of today
+    - tell me the weather forcast
+    - hows the weather today
+
+- intent: city
+  examples: |
+    - delhi
+    - trivandrum
+    - chandigarh
+    - mumbai
+    - kollam
+    - pathanamthitta
+    - kottayam
+    - ooty
+    - munnar
+    - himachal
+    - dubai
+    - london
+    - africa
+    - adoor
+    - kodumon
+    
+- intent: medins
+  examples: |
+    - what's medical insurance?
+    - i want to know about medical insurance
+    - what are the key points of medical insurance?
+    - details about medical insurance
+    - medical insurance
+    - why medeical insurance is used?
+    - need for medical insurance
+  
+- intent: premium
+  examples: |
+    - what is a premium?
+    - i want to know about premium?
+    - premium?
+
+- intent: grace_period
+  examples: |
+    - what is the grace period for paying premiums?
+    - grace period for premium payment?
+    - grace period?
+
+- intent: govt_schemes
+  examples: |
+    - what are the govt schemes for health insurance in india?
+    - govt schemes in india?
+    - govt medical insurance schemes in india?
+    - govt schemes?
+
+- intent: pmjay
+  examples: |
+    - what is pmjay?
+    - pmjay
+
+- intent: rsby
+  examples: |
+    - what is rsby?
+    - rsby?
+  
+- intent: esi
+  examples: |
+    - what is esi?
+    - esi
+
+- intent: cghs
+  examples: |
+    - what is cghs?
+    - cghs?
+
+- intent: sghi
+  examples: |
+    - what is sghi?
+    - sghi
+
+- intent: nhps
+  examples: |
+    - what is nhps?
+    - nhps?
+
+- intent: my_dob
+  examples: |
+    - dob is [21/08/2001]{"entity": "dob", "value": "21/08/2001"}
+    - [21/08/2001]{"entity": "dob", "value": "21/08/2001"}
+    - dob is [31/08/2001]{"entity": "dob", "value": "31/08/2001"}
+    - [31/08/2001]{"entity": "dob", "value": "31/08/2001"}
+    - dob is [21 august 2001]{"entity": "dob", "value": "21 august 2001"}
+    - [21 august 2001]{"entity": "dob", "value": "21 august 2001"}
+    
+
+- intent: tellme_details
+  examples: |
+    - tell me my details?
+    - what's my details?
+    - show my details
+
+- intent: my_name
+  examples: |
+    - i am [vishnupriya]{"entity": "name", "value": "vishnupriya"}
+    - [vishnupriya]{"entity": "name", "value": "vishnupriya"}
+    - i am [nikhi]{"entity": "name", "value": "nikhi"}
+    - [nikhi]{"entity": "name", "value": "nikhi"}
+
+- intent: my_address
+  examples: |
+    - my address is [melethil, kodumon,69155]{"entity": "address", "value": "melethil, kodumon,69155"}
+    - [melethil, kodumon,69155]{"entity": "address", "value": "melethil, kodumon,69155"}
+    - my address is [thekedath, kspm, 695004]{"entity": "address", "value": "thekedath, kspm, 695004"}
+    - [thekedath, kspm, 695004]{"entity": "address", "value": "thekedath, kspm, 695004"}
+
+- intent: my_email
+  examples: |
+    - my email is [vishnupriya@gmail.com]{"entity": "email", "value": "vishnupriya@gmail"}
+    - [vishnupriya@gmail]{"entity": "email", "value": "vishnupriya@gmail"}
+    - my email is [nikhi23@gmail.com]{"entity": "email", "value": "nikhi23@gmail.com]"}
+    - [nikhi23@gmail.com]]{"entity": "email", "value": "nikhi23@gmail.com]"}
+
+- intent: number
+  examples: |
+    - my number is [9947970607]{"entity": "number", "value": "9947970607"}
+    - [9947970607]{"entity": "number", "value": "9947970607"}
+    - my number is [9961246549]{"entity": "number", "value": "9961246549"}
+    - [9961246549]{"entity": "number", "value": "9961246549"}
+
+- intent: direct
+  examples: |
+    - Can I purchase medical insurance directly from an insurance company?
+
+- intent: instructions
+  examples: |
+    - give me some instructions to take a medical insurance?
+    - can i have some instructions to take a policy?
+    - instructions for medical insurance?
+    - general instructions
+    - instructions
+
+- intent: conditions
+  examples: |
+    - give me the instructions to take a medical insurance?
+    - can i have the conditions to take a policy?
+    - conditions for medical insurance?
+    - general conditions
+    - what are the conditions to take a policy?
+    - conditions
+  
+- intent: pvt_schemes
+  examples: |
+    - list out the important private medical insurance schemes in india?
+    - private schemes
+    - which are the private schemes in india
+    - private medical insurance schemes?
+
+- intent: mbhi
+  examples: |
+    - what is mbhi?
+    - mbhi
+    - Max Bupa Health Insurance
+
+- intent: amhi
+  examples: |
+    - what is amhi?
+    - amhi
+    - Apollo Munich Health Insurance
+
+- intent: rhi
+  examples: |
+    - what is rhi?
+    - rhi
+    - Religare Health Insurance 
+
+- intent: shai
+  examples: |
+    - what is shai?
+    - shai
+    - Star Health and Allied Insurance
+
+- intent: ilgi
+  examples: |
+    - what is ilgi?
+    - ilgi
+    - ICICI Lombard General Insurance
+
+- intent: bagi
+  examples: |
+    - what is bagi?
+    - bagi
+    - Bajaj Allianz General Insurance
+
+- intent: niacl
+  examples: |
+    - what is niacl?
+    - niacl
+    - New India Assurance Company Limited
+
+- intent: uicl
+  examples: |
+    - what is uicl?
+    - uicl
+    - United India Insurance Company Limited
+
+- intent: hmo
+  examples: |
+    - what is hmo?
+    - hmo
+    - Health Maintenance Organization
+
+- intent: network
+  examples: |
+    - what is network?
+    - network
+    - network in medical insurance
+
+- intent: ppo
+  examples: |
+    - what is ppo?
+    - ppo
+    - Preferred Provider Organization in medical insurance
+
+- intent: medicare
+  examples: |
+    - what is medicare?
+    - medicare
+    - medicare in medical insurance
+
+- intent: medicare
+  examples: |
+    - what is medicare?
+    - medicare
+    - medicare in medical insurance
+
+- intent: medicaid
+  examples: |
+    - what is medicaid?
+    - medicaid
+    - medicaid in medical insurance
+
+- intent: eob
+  examples: |
+    - what is eob?
+    - eob
+    - eob in medical insurance
+    - Explanation of Benefits 
+
+- intent: pre_ex
+  examples: |
+    - what is pre existing condition?
+    - pre existing condition
+    - pre existing  codition in medical insurance
+
+- intent: subsidy
+  examples: |
+    - what is premium subsidy?
+    - premium subsidy
+    - premium subsidy in medical insurance
+
+- intent: dependent
+  examples: |
+    - what is dependent?
+    - dependent
+    - dependent in medical insurance
+
+- intent: formulary
+  examples: |
+    - what is formulary?
+    - formulary
+    - formulary in medical insurance
+
+- intent: diseases
+  examples: |
+    - Major diseases for which  the insurance is provided?
+    - major diseases?
+    - what diseases can have medical insurance?
+    - diseases for which the insurance is provided?
+    - available schemes
+    - insurance schemes
+
+- intent: astma
+  examples: |
+    - astma?
+    - disease astma
+    - my disease astma 
+
+- intent: bp
+  examples: |
+    - blood pressure?
+    - bp
+    - disease bp
+    - my disease bp
+
+- intent: surgery
+  examples: |
+    - surgery?
+    - major surgery
+    - my disease surgery
+
+- intent: diabetics
+  examples: |
+    - diabetics?
+    - sugar
+    - my disease diabetics
+
+- intent: thyroid
+  examples: |
+    - thyroid?
+    - my disease thyroid
+
+- intent: inform_policy
+  examples: |
+    - i want to know about insurance policies?
+    - what are the policy options available?
+    - show me the list of policies?
+    - list of policies
+    - policies
+
+- intent: select_policy
+  examples: |
+    - /select_policy{"policy": "Care Supreme Direct"}
+    - /select_policy{"policy": "Individual Health Guard - Gold"}
+    - /select_policy{"policy": "Health Gain"}
+    - /select_policy{"policy": "ReAssure 2.0 Bronze+ (Direct)"}
+    - /select_policy{"policy": "Smart Health Pro"}
+    - user selected policy \CSD
+
+- intent: csd
+  examples: |
+    - csd
+    - care supreme direct
+    - /csd
+
+- intent: ihgg
+  examples: |
+    - ihgg
+    - Individual Health Guard – Gold
+    - /ihgg
+
+- intent: hg
+  examples: |
+    - hg
+    - Health Gain
+    - /hg
+
+- intent: csd
+  examples: |
+    - read
+    -  ReAssure 2.0 Bronze+ (Direct)
+    - /read
+
+- intent: shp
+  examples: |
+    - shp
+    - Smart Health Pro
+    - /shp
+
+- intent: purchase
+  examples: |
+    - purchase now
+    - pay now
+    - get premium
