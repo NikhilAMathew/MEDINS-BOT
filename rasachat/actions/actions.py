@@ -141,7 +141,7 @@ class ActionPurchasePolicy(Action):
         buttons= [
                         {
                         "title": "Confirm",
-                        "payload": "/confirm"
+                        "payload": "https://www.google.com/"
                         },
                         {
                             "title": "Cancel",
@@ -149,5 +149,5 @@ class ActionPurchasePolicy(Action):
                         }
                     ]
 
-        dispatcher.utter_message(text="<h1>Confirmation</h2>You want to confirm the",buttons=buttons)
+        dispatcher.utter_message(text="<h1>Confirmation</h2><hr><b>You want to confirm the purchase order</b> <div1eeeeee> total amount : (amount) </div>",buttons=buttons)
         return []
