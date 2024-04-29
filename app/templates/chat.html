@@ -1,42 +1,444 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - www.codingnepalweb.com -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>MEDINS</title>
-    <link rel="stylesheet" href="static/style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Fonts Link For Icons -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="/static/img/favicon.png">
+<html>
 
-    <script src="static/js/scripts.js" defer></script>
-  </head>
-  <body>
-    hello
-    <button class="chatbot-toggler">
-      <span class="material-symbols-rounded">mode_comment</span>
-      <span class="material-symbols-outlined">close</span>
-    </button>
-    <div class="chatbot">
-      <header>
-        <h2>MedIns Assistant</h2>
-        <span class="close-btn material-symbols-outlined">close</span>
-      </header>
-      <ul class="chatbox">
-        <li class="chat incoming">
-          <span class="material-symbols-outlined">smart_toy</span>
-          <p>Hi there 👋<br>How can I help you today?</p>
-        </li>
-      </ul>
-      <div class="chat-input">
-        <button id="toggleButton" class="microphone-btn" type="button" onclick="speechText()"> <i class="fa-solid fa-microphone"></i> </button>
-        <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
-        <span id="send-btn" class="material-symbols-rounded">send</span>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <link rel="stylesheet" href="static/style.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Google Fonts Link For Icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script src="static/js/scripts.js" defer></script>
+
+  <link rel="icon" type="image/x-icon" href="static/images/logo.png">
+  <title>Medins</title>
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,700|Raleway:400,700&display=swap"
+    rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="/">
+            <img src="static/images/logo.png" alt="" />
+            <span>
+              MEDINS
+            </span>
+          </a>
+
+          <div class="navbar-collapse" id="">
+            <div class="custom_menu-btn">
+              <button onclick="openNav()">
+                <span class="s-1"> </span>
+                <span class="s-2"> </span>
+                <span class="s-3"> </span>
+              </button>
+            </div>
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                <a href="/">HOME</a>
+                <a href="/about">ABOUT</a>
+                <a href="/contact">Contact Us</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="side_heading">
+        <h5>
+          M
+          E
+          D
+          I
+          N
+          S
+        </h5>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-3 col-md-4 offset-md-1">
+            <div id="carouselExampleIndicators" class="carousel slide " data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+                  01
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1">
+                  02
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2">
+                  03
+                </li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3">
+                  04
+                </li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="img-box b-1">
+                    <img src="static/images/slider1.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-2">
+                    <img src="static/images/hg.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-3">
+                    <img src="static/images/read.png" alt="" />
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="img-box b-4">
+                    <img src="static/images/shp.png" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="carousel_btn-box">
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class=" col-md-5 offset-md-1">
+            <div class="detail-box">
+              <h1>
+                Medical <br>
+                Insurance
+              </h1>
+              <p>
+                Innovative Health Solutions for a Better Tomorrow
+              </p>
+
+              <div class="btn-box">
+                <a href="" class="btn-2">
+                  Get Started
+                </a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+  
+  <!-- chatbot section -->
+  <button class="chatbot-toggler">
+    <span class="material-symbols-rounded">mode_comment</span>
+    <span class="material-symbols-outlined">close</span>
+  </button>
+  <div class="chatbot">
+    <header>
+      <h2>MedIns Assistant</h2>
+      <span class="close-btn material-symbols-outlined">close</span>
+    </header>
+    <ul class="chatbox">
+      <li class="chat incoming">
+        <span class="material-symbols-outlined">smart_toy</span>
+        <p>Hi there! <br/>Welcome to Medins Assistant. <br/>How can I help you today?</p><br>
+      </li>
+      <button id="startBtn" class="payload-button" style="width: 50px; margin-left: 50px;" value="hi" onclick="startChat()">Chat Now</button>
+    </ul>
+    <div class="chat-input">
+      <button id="toggleButton" class="microphone-btn" type="button" onclick="speechText()"> <i class="fa-solid fa-microphone"></i> </button>
+      <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+      <span id="send-btn" class="material-symbols-rounded">send</span>
+    </div>
+  </div>
+  <!-- end chatbot section -->
+
+
+  <!-- about section -->
+  <section class="about_section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-5 offset-md-1">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                About <br>
+                Our <br>
+                Assistant
+              </h2>
+              <hr>
+            </div>
+            <p>Our health is not in our control, we man face many diseases in the future or we may even face accidents. Keeping in view the costly treatments, it becomes very difficult for many people to bear it. Our chatbot can help you and feel you secured.</p>
+            <a href="/about">
+              Read More
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 px-0">
+          <div class="img-box">
+            <img src="static/images/hero-img.png" alt="">
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-  </body>
+  <!-- end about section -->
+
+  <!-- insurance section -->
+
+  <section class="hot_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Let's find you 
+        </h2>
+        <hr>
+      </div>
+      <p>
+        the <b>Best Insurance</b>
+      </p>
+    </div>
+    <div class="carousel_container">
+      <div class="container">
+        <div class="carousel-wrap ">
+          <div class="owl-carousel">
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/csd.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    Care Supreme Direct
+                  </h4>
+                  <p>
+                  To ensure maximum coverage against health emergencies, Care Health Insurance introduces Care Supreme — The Health Insurance You Deserve.
+                  </p>
+                  <a href="/about">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/ihgg.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    Individual Health Guard – Gold
+                  </h4>
+                  <p>
+                    Health Guard Policy provides you with a comprehensive range of benefits, ensuring you are covered for the larger expenses
+                  </p>
+                  <a href="/about">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/hg.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    Health Gain
+                  </h4>
+                  <p>
+                    Our health insurance policy is a #MeriPolicyMeriChoice plan that doesn’t let you compromise on your health.
+                  </p>
+                  <a href="/about">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+<div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/read.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    ReAssure 2.0 Bronze+ (Direct)
+                  </h4>
+                  <p>
+                    We aim to give every Indian the confidence to access best healthcare by providing health insurance plans as per your needs.
+                  </p>
+                  <a href="/about">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+<div class="item">
+              <div class="box">
+                <div class="img-box">
+                  <img src="static/images/shp.png" />
+                </div>
+                <div class="detail-box">
+                  <h4>
+                    Smart Health Pro
+                  </h4>
+                  <p>
+                    Star Smart Health Pro is a pro-customer policy that provides comprehensive medical coverage to individuals and families at an affordable price.
+                  </p>
+                  <a href="/about">
+                    Read More
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end hot section -->
+
+  <!-- contact section -->
+
+  <section class="contact_section layout_padding-bottom ">
+    <div class="container">
+      <h2>
+        Get In touch
+      </h2>
+      <div class="row">
+        <div class="col-md-7">
+          <div class="form_container">
+            <form action="">
+              <input type="text" placeholder="Name">
+              <input type="text" placeholder="Phone number">
+              <input type="email" placeholder="Email">
+              <input type="text" placeholder="Message" class="message_input">
+              <button>
+                Send
+              </button>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="contact_box">
+            <a href="">
+              <div class="img-box">
+                <img src="static/images/location.png" alt="">
+              </div>
+              <h6>
+                Trivandrum
+              </h6>
+            </a>
+            <a href="">
+              <div class="img-box">
+                <img src="static/images/call.png" alt="">
+              </div>
+              <h6>
+                (+91) 1234567890
+              </h6>
+            </a>
+            <a href="">
+              <div class="img-box">
+                <img src="static/images/envelope.png" alt="">
+              </div>
+              <h6>
+                medins@gmail.com
+              </h6>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end contact section -->
+
+  <!-- footer section -->
+  <section class="container-fluid footer_section">
+    <p>
+      &copy; 2024
+      <a href="#">Medins</a>
+    </p>
+  </section>
+  <!-- footer section -->
+
+  <script type="text/javascript" src="../static/js/jquery-3.4.1.min.js"></script>
+  <script type="text/javascript" src="../static/js/bootstrap.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js">
+  </script>
+
+
+  <script>
+    function openNav() {
+      document.getElementById("myNav").classList.toggle("menu_width");
+      document
+        .querySelector(".custom_menu-btn")
+        .classList.toggle("menu_btn-style");
+    }
+  </script>
+
+  <!-- owl carousel script -->
+  <script type="text/javascript">
+    $(".owl-carousel").owlCarousel({
+      loop: true,
+      margin: 35,
+      navText: [],
+      autoplay: true,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 2
+        },
+        1000: {
+          items: 3
+        }
+      }
+    });
+  </script>
+  <!-- end owl carousel script -->
+
+</body>
+
 </html>
