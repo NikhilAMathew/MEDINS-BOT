@@ -1,5 +1,9 @@
 /* Import Google font - Poppins */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+:root {
+  scroll-behavior: smooth;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -7,8 +11,13 @@
   font-family: "Poppins", sans-serif;
 }
 body {
-  background: #E3F2FD;
+  font-family: "Open Sans", sans-serif;
+  color: #444444;
+  /* background: url(/static/img/hero-bg.png) top center no-repeat;
+  background-size: cover;
+  height: 100vh; */
 }
+
 .chatbot-toggler {
   position: fixed;
   bottom: 30px;
@@ -24,6 +33,7 @@ body {
   border-radius: 50%;
   background: #071330;
   transition: all 0.2s ease;
+  z-index: 123456;
 }
 body.show-chatbot .chatbot-toggler {
   transform: rotate(90deg);
@@ -54,6 +64,7 @@ body.show-chatbot .chatbot-toggler span:last-child {
   box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
               0 32px 64px -48px rgba(0,0,0,0.5);
   transition: all 0.1s ease;
+  z-index: 123456;
 }
 body.show-chatbot .chatbot {
   opacity: 1;
@@ -174,14 +185,20 @@ header h2 {
     padding: 10px 15px;
     border-radius: 10px;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: 0.3s ease-in-out;
     min-width: 200px;
     margin-bottom: 7px;
     max-width: 350px;
-    background: #FFF;
+    background: white;
     border: none;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
+
+.payload-button:hover {
+  background: #071330;
+  color: white;
+}
+
 .read-aloud-btn {
     border: none;
     color: #071330;
@@ -203,27 +220,30 @@ header h2 {
     border-radius: 40px;
 }
 
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-  }
-  
-  /* Track */
-  .chatbox::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px #f2f2f2; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  .chatbox::-webkit-scrollbar-thumb {
-    background: #071330; 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  .chatbox::-webkit-scrollbar-thumb:hover {
-    background: #071330; 
-  }
+hr {
+  margin-bottom: 10px;
+}
+select::-ms-expand {
+  display: none;
+}
+select {
+  display: inline-block;
+  width: 100%;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 0.5em 2em 0.5em 0.5em;
+  border: 1px solid #eee;
+  font: inherit;
+  line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: right 15px top 1em, right 10px top 1em;
+  background-size: 5px 5px, 5px 5px;
+}
 
 @media (max-width: 490px) {
   .chatbot-toggler {

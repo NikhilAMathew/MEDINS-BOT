@@ -17,6 +17,8 @@ const createChatLi = (message, className) => {
     return chatLi; // return chat <li> element
 }
 
+let amount = 0;
+
 const generateResponse = (chatElement) => {
 
     const messageElement = chatElement.querySelector("p");
@@ -33,9 +35,6 @@ const generateResponse = (chatElement) => {
             console.log('Received data:', data);
 
             messageElement.innerHTML = `${data['bot_response']}<button class="read-aloud-btn" onclick="readAloud(this, '${data['bot_response']}')"><i class="fa-solid fa-volume-low"></i></button>`;
-
-
-
             // Check if bot response contains buttons
             if (data['buttons']) {
                 console.log('Received buttons:', data['buttons']);
@@ -51,7 +50,56 @@ const generateResponse = (chatElement) => {
                     buttonElement.onclick = function () {
                         payload = button.payload;
                         chatInput.value = button.title;
-                        handleChat();
+                        handleChat();   
+
+                        if (button.payload === "/purchase") {
+                            title = button.title;
+                            var number = title.replace(/\D/g, '');
+                            amount += parseInt(number);
+                        }
+
+                        if (button.title === "Confirm") {
+                fetch('/create_order', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data) // Assuming orderData is defined somewhere
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(data) {
+                    // Handle response from backend
+                    // const amount = parseFloat(data['amount']);
+                    
+                    var options = {
+                        "key": "rzp_test_mscBObbyZL9Nw3",
+                        "amount": amount * 100, 
+                        "currency": "INR",
+                        "name": "MEDINS",
+                        "description": "Purchasing Policy",
+                        "image": "../static/img/favicon.png",
+                        "handler": function (response){
+                            // Handle payment response if needed
+                        },
+                        "prefill": {
+                            "name": "Vishnupriya",
+                            "email": "medins@gmail.com",
+                            "contact": "9999999999"
+                        },
+                        "theme": {
+                            "color": "#436bf1"
+                        }
+                    };
+                    
+                    var rzp1 = new Razorpay(options);
+                    rzp1.open();
+                })
+                .catch(function(error) {
+                    console.error('Error:', error);
+                });
+                        }                  
                     };
 
                     buttonsContainer.appendChild(buttonElement);
@@ -126,6 +174,11 @@ function speechText() {
         console.error('Speech recognition error:', event.error);
     };
 
+}
+
+function startChat() {
+    chatInput.value = document.getElementById("startBtn").value
+    handleChat();
 }
 
 const handleChat = () => {
